@@ -1,0 +1,59 @@
+table mlb_snapshot_validation_log
+	lineageTag: 2c1c8514-e5a9-4b9b-8954-c5eab24ddff2
+	sourceLineageTag: [dbo].[mlb_snapshot_validation_log]
+
+	column snapshot_name
+		dataType: string
+		lineageTag: ef816506-062a-4e84-aa0e-f83a88c828db
+		sourceLineageTag: snapshot_name
+		summarizeBy: none
+		sourceColumn: snapshot_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: 56ceb32e-7d5b-4224-82c7-c0f8f8a40033
+		sourceLineageTag: total_rows
+		summarizeBy: sum
+		sourceColumn: total_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinct_teams
+		dataType: int64
+		formatString: 0
+		lineageTag: 19a78125-51ec-4c88-b7c1-b8e0edfeeb8a
+		sourceLineageTag: distinct_teams
+		summarizeBy: sum
+		sourceColumn: distinct_teams
+
+		annotation SummarizationSetBy = Automatic
+
+	column null_issues
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c09b9dc-7e42-425f-9eab-e2b9bc30745c
+		sourceLineageTag: null_issues
+		summarizeBy: sum
+		sourceColumn: null_issues
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: e4079eb7-26fc-4d6e-b586-73a35018f22b
+		sourceLineageTag: status
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mlb_snapshot_validation_log = entity
+		mode: directLake
+		source
+			entityName: mlb_snapshot_validation_log
+			schemaName: dbo
+			expressionSource: 'DirectLake - MLB_lakehouse'
+

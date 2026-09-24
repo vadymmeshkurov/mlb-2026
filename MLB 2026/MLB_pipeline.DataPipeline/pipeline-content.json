@@ -1,0 +1,84 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "3aa130a6-9fa7-b8ab-4645-1742dd1c94de",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "run_ingestion_notebook_raw",
+        "description": "run ",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "373ab99f-051c-852a-49fe-4485f7b7f5ba",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "run_validation_and_ingestion_notebook_silver",
+        "dependsOn": [
+          {
+            "activity": "run_ingestion_notebook_raw",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "PBISemanticModelRefresh",
+        "typeProperties": {
+          "method": "POST",
+          "groupId": "4a840812-99d9-446b-921e-716bac127e16",
+          "datasetId": "5fec4ef5-ab39-417c-94e1-be998f1e71c0",
+          "commitMode": "Transactional",
+          "objects": [
+            {
+              "table": "mlb_snapshot_validation_log"
+            },
+            {
+              "table": "fact_mlb_standings_silver"
+            }
+          ],
+          "waitOnCompletion": true,
+          "operationType": "SemanticModelRefresh"
+        },
+        "externalReferences": {
+          "connection": "8b257369-928f-46a8-8e59-8bb9ce1814f6"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "refresh_mlb_semantic_model",
+        "dependsOn": [
+          {
+            "activity": "run_validation_and_ingestion_notebook_silver",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

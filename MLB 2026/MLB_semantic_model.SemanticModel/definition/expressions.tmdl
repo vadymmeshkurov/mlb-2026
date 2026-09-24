@@ -1,0 +1,11 @@
+expression 'DirectLake - MLB_lakehouse' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/4a840812-99d9-446b-921e-716bac127e16/ccc7e16c-a9b8-410c-8caf-7b2d26574761", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: af3b9779-ddee-47c8-9171-ceb54eaf82b2
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[raw_mlb_snapshot_20260612]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[raw_mlb_snapshot_20260615]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[raw_mlb_snapshot_20260614]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[raw_mlb_snapshot_20260616]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[raw_mlb_snapshot_20260613]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[raw_mlb_snapshot_20260617]"}},"objectType":"Table"}]
+
