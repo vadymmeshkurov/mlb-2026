@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "MLB_report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "60bb2405-0ad6-8fa6-4c58-41ac6e9d0d76"
+  }
+}

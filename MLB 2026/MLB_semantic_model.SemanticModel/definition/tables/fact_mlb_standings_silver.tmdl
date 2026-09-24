@@ -1,0 +1,83 @@
+table fact_mlb_standings_silver
+	lineageTag: 2d37e07c-55ff-4fad-8871-4a829d1ad95a
+	sourceLineageTag: [dbo].[fact_mlb_standings_silver]
+
+	column Team
+		dataType: string
+		lineageTag: 0659ea68-563d-4107-b6b9-8c8e6506dab3
+		sourceLineageTag: Team
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wins
+		dataType: double
+		lineageTag: 5d5f2e64-1d4b-42c5-b907-643986662c10
+		sourceLineageTag: Wins
+		summarizeBy: sum
+		sourceColumn: Wins
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Losses
+		dataType: double
+		lineageTag: 825db0e6-03a4-45c4-be7d-c56a345345f5
+		sourceLineageTag: Losses
+		summarizeBy: sum
+		sourceColumn: Losses
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WinPct
+		dataType: double
+		lineageTag: 509d7444-15b0-47d5-800a-a15cdf1b1dcb
+		sourceLineageTag: WinPct
+		summarizeBy: sum
+		sourceColumn: WinPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SnapshotDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4813ee8c-ec44-47af-8267-11d68595ad57
+		sourceLineageTag: SnapshotDate
+		summarizeBy: none
+		sourceColumn: SnapshotDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Season
+		dataType: int64
+		formatString: 0
+		lineageTag: 71e5b811-2d92-42a2-ba48-3d0ca362afb6
+		sourceLineageTag: Season
+		summarizeBy: sum
+		sourceColumn: Season
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingested_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ac3dd181-56e1-4f17-978f-9b6b96c7260d
+		sourceLineageTag: ingested_at
+		summarizeBy: none
+		sourceColumn: ingested_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_mlb_standings_silver = entity
+		mode: directLake
+		source
+			entityName: fact_mlb_standings_silver
+			schemaName: dbo
+			expressionSource: 'DirectLake - MLB_lakehouse'
+

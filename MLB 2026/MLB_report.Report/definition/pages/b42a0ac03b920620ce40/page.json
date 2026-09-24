@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "b42a0ac03b920620ce40",
+  "displayName": "2026 Team Trends",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "201L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "8f38764d2a44baa1b8e4",
+      "target": "7c284ee0e001970b1cc0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "10d1f86ec516a9b40e40",
+      "target": "3bec405c080320d2933e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "10d1f86ec516a9b40e40",
+      "target": "ed4d6614262804e6900a",
+      "type": "DataFilter"
+    }
+  ]
+}

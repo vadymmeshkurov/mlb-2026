@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "MLB_pipeline"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1dbcee79-cafc-9acd-4d67-14726253988e"
+  }
+}
