@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "MLB_notebook_build_dim_team",
+    "description": "Builds dim_team: one row per MLB team with its logo as an SVG data URI."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "48ef9d6e-e735-4b20-adbf-74a92fcac6fd"
+  }
+}
